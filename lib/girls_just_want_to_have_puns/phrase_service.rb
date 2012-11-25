@@ -1,3 +1,4 @@
+require 'girls_just_want_to_have_puns/phrase_sources/wikipedia_beatles_songs_phrase_source'
 require 'girls_just_want_to_have_puns/phrase_sources/wikipedia_idioms_phrase_source'
 
 module GirlsJustWantToHavePuns
@@ -12,7 +13,7 @@ module GirlsJustWantToHavePuns
     end
 
     def self.sources
-      [WikipediaIdiomsPhraseSource]
+      [WikipediaIdiomsPhraseSource, WikipediaBeatlesSongsPhraseSource]
     end
 
   end

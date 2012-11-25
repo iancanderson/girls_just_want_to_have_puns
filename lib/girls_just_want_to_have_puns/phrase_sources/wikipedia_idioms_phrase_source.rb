@@ -1,5 +1,10 @@
+require 'nokogiri'
+require 'open-uri'
+
+require 'girls_just_want_to_have_puns/phrase_sources/phrase_source'
+
 module GirlsJustWantToHavePuns
-  class WikipediaIdiomsPhraseSource
+  class WikipediaIdiomsPhraseSource < PhraseSource
 
     def self.refresh
       doc = Nokogiri::HTML(open('http://en.wiktionary.org/wiki/Appendix:English_idioms'))
@@ -14,16 +19,12 @@ module GirlsJustWantToHavePuns
       end
     end
 
-    def self.phrase_directory
-      'phrases'
-    end
-
     def self.cache_filepath
       File.expand_path(File.join(File.dirname(__FILE__), "../", phrase_directory, "wikipedia_idioms.txt"))
     end
 
-    def self.phrases
-      File.readlines(cache_filepath).map(&:chomp)
+    def self.friendly_name
+      'English idioms'
     end
 
   end
