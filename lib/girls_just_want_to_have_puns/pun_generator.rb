@@ -11,13 +11,24 @@ module GirlsJustWantToHavePuns
     end
 
     def puns
-      puns = []
-      @source_phrases.each do |phrase|
+      @source_phrases.each_with_object([]) do |phrase, puns|
         @rhymes.each do |rhyme|
-          puns << Punifier.new(phrase, rhyme, @keyword).pun
+          if pun = Punifier.new(phrase, rhyme, @keyword).pun
+            puns << pun
+          end
         end
       end
-      puns.compact
+    end
+
+    def pun
+      @source_phrases.shuffle.each do |phrase|
+        @rhymes.shuffle.each do |rhyme|
+          if pun = Punifier.new(phrase, rhyme, @keyword).pun
+            return pun
+          end
+        end
+      end
+      return nil
     end
 
     private

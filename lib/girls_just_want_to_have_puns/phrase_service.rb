@@ -5,7 +5,7 @@ module GirlsJustWantToHavePuns
   class PhraseService
 
     def phrases
-      self.class.sources.map(&:phrases).flatten
+      self.class.sources.flat_map(&:phrases)
     end
 
     def self.refresh_sources
