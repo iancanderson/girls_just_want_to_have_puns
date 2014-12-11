@@ -1,7 +1,8 @@
 #!/usr/bin/env rake
+require "rubygems"
+require "bundler/setup"
 require "bundler/gem_tasks"
-
-require 'girls_just_want_to_have_puns/phrase_service'
+require "girls_just_want_to_have_puns"
 
 namespace :phrases do
 

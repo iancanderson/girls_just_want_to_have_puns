@@ -14,6 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "girls_just_want_to_have_puns"
   gem.require_paths = ["lib"]
   gem.version       = GirlsJustWantToHavePuns::VERSION
-  gem.add_dependency('nokogiri', '~> 1.5.5')
+  gem.add_dependency('nokogiri', '>= 1.5.5')
   gem.add_development_dependency('rake')
 end
