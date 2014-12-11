@@ -3,8 +3,8 @@ require "girls_just_want_to_have_puns/pun_generator"
 
 module GirlsJustWantToHavePuns
 
-  def self.puns(keyword)
-    PunGenerator.puns(keyword)
+  def self.puns(keyword, rhymes: nil, source_phrases: nil)
+    PunGenerator.new(keyword, rhymes: rhymes, source_phrases: source_phrases).puns
   end
 
 end

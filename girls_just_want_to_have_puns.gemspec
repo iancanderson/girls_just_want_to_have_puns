@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = GirlsJustWantToHavePuns::VERSION
   gem.add_dependency('nokogiri', '>= 1.5.5')
   gem.add_development_dependency('rake')
+  gem.add_development_dependency('rspec')
 end
