@@ -7,7 +7,9 @@ require "girls_just_want_to_have_puns"
 namespace :phrases do
 
   task :refresh do
-    GirlsJustWantToHavePuns::PhraseService.refresh_sources
+    GirlsJustWantToHavePuns::PhraseService.refresh_sources(
+      [GirlsJustWantToHavePuns::WikipediaIdiomsPhraseSource]
+    )
   end
 
 end

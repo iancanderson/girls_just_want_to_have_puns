@@ -10,13 +10,13 @@ module GirlsJustWantToHavePuns
       self.class.sources.flat_map(&:phrases)
     end
 
-    def self.refresh_sources
-      sources.each(&:refresh)
+    def self.refresh_sources(sources_to_exclude = [])
+      (sources - sources_to_exclude).each(&:refresh)
     end
 
     def self.sources
       [
-        # WikipediaIdiomsPhraseSource, # page doesnt work any more
+        WikipediaIdiomsPhraseSource, # page doesnt work any more
         WikipediaBeatlesSongsPhraseSource,
         WikipediaOscarWinningFilmsPhraseSource,
         WikipediaBestSellingBooksPhraseSource
