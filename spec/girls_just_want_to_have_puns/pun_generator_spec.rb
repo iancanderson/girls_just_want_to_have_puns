@@ -27,4 +27,18 @@ describe GirlsJustWantToHavePuns::PunGenerator do
 
     expect(pun).to eq(nil)
   end
+
+  it "doesn't match partial words" do
+    generator = described_class.new(
+      "cats",
+      minimum_word_count: 6,
+      rhymes: ["bat"],
+      source_phrases: [
+        Phrase.new("misc", "throw the baby out with the bath water")
+      ]
+    )
+    pun = generator.puns.first
+
+    expect(pun).to eq(nil)
+  end
 end

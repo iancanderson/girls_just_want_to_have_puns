@@ -10,7 +10,7 @@ module GirlsJustWantToHavePuns
     end
 
     def pun
-      new_phrase = @original_phrase.text.sub(/\b#{@word_to_replace}/i, @replacement_word)
+      new_phrase = @original_phrase.text.sub(/\b#{@word_to_replace}\b/i, @replacement_word)
       if new_phrase == @original_phrase.text
         nil
       else
