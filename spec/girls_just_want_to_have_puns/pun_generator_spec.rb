@@ -13,4 +13,18 @@ describe GirlsJustWantToHavePuns::PunGenerator do
 
     expect(pun.new_phrase).to eq("happiness is a warm pun")
   end
+
+  it "can accept a minimum number of words" do
+    generator = described_class.new(
+      "pun",
+      minimum_word_count: 6,
+      rhymes: ["gun"],
+      source_phrases: [
+        Phrase.new("Beatles songs", "happiness is a warm gun")
+      ]
+    )
+    pun = generator.puns.first
+
+    expect(pun).to eq(nil)
+  end
 end
